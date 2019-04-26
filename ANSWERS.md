@@ -16,7 +16,8 @@ A zombie process is a process that was exited but still holds data that needs to
 **3. How does a zombie process get created? How does one get destroyed?**
 It is created when the child process completes its execution, and exits, but leaves behind its process status and other details.
 
-It is destroyed when the parent executes a wait system call, which will read all dead child process statuses. Once the wait call is complete, the dead child will be removed from memory
+It is destroyed when the parent executes a wait system call, which will read all dead child process statuses. Once the wait call is complete, the dead child will be removed from memory. it can also be killed by using the parent process's id when calling:  ```kill -s SIGCHLD pid```
+This allows the parent to remove the child processes that are completed.
 
 
 
